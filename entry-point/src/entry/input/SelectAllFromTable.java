@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.mysql.jdbc.ResultSetMetaData;
 
 import framework.core.jdbc.SelectAllJDBC;
+import Cache.cacheStore;
 
 public class SelectAllFromTable {
 	
@@ -17,7 +18,19 @@ public class SelectAllFromTable {
 	public static ArrayList<Object> ArrayListSelectAllDynamicLinker(String _tableName){
 		
 		
-		return JDBCProcessCaller(_tableName);
+		// added provision for caching
+		
+		if(cacheStore.getFromCache("SelectAll"+_tableName)!=null){
+			return cacheStore.getFromCache("SelectAll"+_tableName);
+		}
+		else{
+			
+		
+		ArrayList<Object> res = new ArrayList<Object>();
+		res = JDBCProcessCaller(_tableName);
+		cacheStore.setCache("SelectAll"+_tableName, res);
+		return res;
+		}
 		
 		
 	}

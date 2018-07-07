@@ -1,14 +1,15 @@
 package Cache;
 
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class cacheStore {
 	
 	
-	private static ConcurrentHashMap<String,Object> cache = new ConcurrentHashMap<String,Object>();
+	private static ConcurrentHashMap<String,ArrayList<Object>> cache = new ConcurrentHashMap<String,ArrayList<Object>>();
 	
 	
-	public static Object getFromCache(String key){
+	public static ArrayList<Object> getFromCache(String key){
 		
 		
 		return cache.get(key);
@@ -16,9 +17,9 @@ public class cacheStore {
 		
 	}
 	
-	public static boolean setCache(String key,Object obj){
+	public static boolean setCache(String key,ArrayList<Object> obj){
 		
-		cache.put(key, obj);
+		cache.put(key,obj);
 		return true;
 		
 	}
