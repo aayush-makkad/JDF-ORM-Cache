@@ -1,13 +1,7 @@
-# java-database-framework
+# java-database-framework with cache
 
 
-Working on developing a library to easen up the process for backend development for ava applications by handling jdbc and sql commands 
-on its own.
-
-Just provide credentials, table and column identifiers and you are good to go . :)
-
-The reason it/i am creating and parsing XMLs is to provide a two way approach to providing required parametrers, either you can call the functions with required parameters or you can edit the XMLs and provide the necesarry parameters there. 
-
+Does exactly what my other repo java-database-framework (ORM) does but provides internal caching and hence improves the speed of retrieval. 
 Will be working for mysql only, at least as of now . :(
 
 mysql connector is required on build path for library as is a dependency of it.
