@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import process.process;
 
 public class SelectAllExample {
+	
+	static boolean flag = true;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -64,7 +66,16 @@ public class SelectAllExample {
 			System.out.println("col_2 data : "+tp.getsix_test());
 		}
 		
-		System.out.println("Total time taken : "+totalTime3);
+		System.out.println("Total time taken after being cached : "+totalTime3);
+		
+		ChangeColumnNameExample.main(null);
+		System.out.println("Cache evicted!!");
+		
+		if(flag){
+			flag = false;
+			SelectAllExample.main(null);
+		}
+		
 
 	}
 

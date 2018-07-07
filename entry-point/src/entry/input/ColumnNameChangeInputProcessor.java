@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import database.mapping.MetaDataExtractionHelper;
 import framework.core.jdbc.*;
+import Cache.cacheStore;
 
 public class ColumnNameChangeInputProcessor {
 	
@@ -35,6 +36,7 @@ public class ColumnNameChangeInputProcessor {
 		DropTableInputHelper.BindingDeletion(_tableName);
 	    MetaDataExtractionHelper.SingleTableMappingReconstrunction(_tableName);
 	    System.out.println("Created mappings for altered table");
+	    cacheStore.evict("SelectAll"+_tableName);
 		
 		
 	}

@@ -1,3 +1,4 @@
+
 package testPackage;
 import process.process;
 
@@ -7,9 +8,9 @@ public class ChangeColumnNameExample {
 		// TODO Auto-generated method stub
 		
 		// Define the table name, current name of column and the name you want to change it to
-		String _tableName = "newTestProcess";
-		String _oldName = "col_1";
-		String _newName = "column_1";
+		String _tableName = "test_table";
+		String _oldName = "five_test";
+		String _newName = "five_testt";
 		
 		
 		// Call the function to change it

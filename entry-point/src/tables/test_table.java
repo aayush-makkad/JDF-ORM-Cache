@@ -18,14 +18,14 @@ public class test_table{
   }
     public boolean issix_test_bool(){return this.six_test_bool;}
 
-    int five_test= 0;   boolean five_test_bool = false;
-    public int getfive_test(){
-       return five_test;
+    int five_testt= 0;   boolean five_testt_bool = false;
+    public int getfive_testt(){
+       return five_testt;
   }
-    public void setfive_test(int _five_test){
-      this.five_test =  _five_test;      this.five_test_bool=true;
+    public void setfive_testt(int _five_testt){
+      this.five_testt =  _five_testt;      this.five_testt_bool=true;
   }
-    public boolean isfive_test_bool(){return this.five_test_bool;}
+    public boolean isfive_testt_bool(){return this.five_testt_bool;}
 
     String try_two= null;   boolean try_two_bool = false;
     public String gettry_two(){
