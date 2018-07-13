@@ -5,8 +5,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class cacheStore {
 	
-	
-	private static ConcurrentHashMap<String,ArrayList<Object>> cache = new ConcurrentHashMap<String,ArrayList<Object>>();
+	/*
+	 * Master cache map
+	 */
+	public static ConcurrentHashMap<String,ArrayList<Object>> cache = new ConcurrentHashMap<String,ArrayList<Object>>();
 	
 	
 	public static ArrayList<Object> getFromCache(String key){

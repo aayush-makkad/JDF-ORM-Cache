@@ -18,15 +18,6 @@ public class test_table{
   }
     public boolean issix_test_bool(){return this.six_test_bool;}
 
-    int five_testt= 0;   boolean five_testt_bool = false;
-    public int getfive_testt(){
-       return five_testt;
-  }
-    public void setfive_testt(int _five_testt){
-      this.five_testt =  _five_testt;      this.five_testt_bool=true;
-  }
-    public boolean isfive_testt_bool(){return this.five_testt_bool;}
-
     String try_two= null;   boolean try_two_bool = false;
     public String gettry_two(){
        return try_two;
@@ -35,6 +26,15 @@ public class test_table{
       this.try_two =  _try_two;      this.try_two_bool=true;
   }
     public boolean istry_two_bool(){return this.try_two_bool;}
+
+    int five_testt3= 0;   boolean five_testt3_bool = false;
+    public int getfive_testt3(){
+       return five_testt3;
+  }
+    public void setfive_testt3(int _five_testt3){
+      this.five_testt3 =  _five_testt3;      this.five_testt3_bool=true;
+  }
+    public boolean isfive_testt3_bool(){return this.five_testt3_bool;}
 
     int first_test= 0;   boolean first_test_bool = false;
     public int getfirst_test(){

@@ -34,6 +34,26 @@ public class SelectAllFromTable {
 		
 		
 	}
+	
+public static ArrayList<Object> ArrayListSelectAllDynamicLinker(String _tableName,boolean isinvalidation){
+		
+		
+		// added provision for caching
+		
+		if(cacheStore.getFromCache("SelectAll"+_tableName)!=null && !isinvalidation){
+			return cacheStore.getFromCache("SelectAll"+_tableName);
+		}
+		else{
+			
+		
+		ArrayList<Object> res = new ArrayList<Object>();
+		res = JDBCProcessCaller(_tableName);
+		cacheStore.setCache("SelectAll"+_tableName, res);
+		return res;
+		}
+		
+		
+	}
 	public static void main(String args[]){
 		 ArrayList<Object> ar = new ArrayList<Object>();
 		ar = ArrayListSelectAllDynamicLinker("test_table");
@@ -48,6 +68,9 @@ public class SelectAllFromTable {
 		}
 		
 	}
+	
+	
+	
 	
 //	public static ArrayList<Object> RunSelectAll(String _tableName){
 //		

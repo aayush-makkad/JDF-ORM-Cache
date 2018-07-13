@@ -1,7 +1,10 @@
 package entry.input;
 
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
+import Cache.cacheStore;
 import database.mapping.MetaDataExtractionHelper;
 import framework.core.jdbc.ChangeTableNameJDBC;
 
@@ -29,6 +32,8 @@ public class ChangeTableNameInputSupport {
 		DropTableInputHelper.BindingDeletion(_newTableName);
 	    MetaDataExtractionHelper.SingleTableMappingReconstrunction(_newTableName);
 	    System.out.println("Created mappings for altered table");
+	    cacheStore.evict("SelectAll"+_oldTableName);
+	    
 		}catch(Exception e){
 			e.printStackTrace();
 		}

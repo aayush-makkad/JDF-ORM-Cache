@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import Cache.cacheStore;
 import framework.core.jdbc.InsertIntoJDBC;
 import tables.test_table;
 
@@ -114,6 +115,7 @@ public class InsertIntoHelper {
 	        	System.out.println("Values :"+ColumnValues.toString());
 	        	System.out.println("Now running the JDBC core process");
 	        	InsertIntoJDBC.mainProcess(_tableName,columnsSelected,ColumnValues);
+	        	cacheStore.evict("SelectAll"+_tableName);
 	        	System.out.println("Required entry inserted!");
 	        	
 	        	

@@ -8,6 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 
+import Cache.cacheStore;
+
 public class DropTableInputHelper {
 	
 	
@@ -63,6 +65,7 @@ public class DropTableInputHelper {
 		
 		boolean res = false;
 		res = DropTableJDBCSupportClass.DropTableHelper(_tableName);
+		cacheStore.evict("SelectAll"+_tableName);
 		return res;
 		
 		

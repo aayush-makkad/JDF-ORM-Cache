@@ -4,6 +4,7 @@ import framework.core.jdbc.*;
 
 import java.util.Scanner;
 
+import Cache.cacheStore;
 import database.mapping.MetaDataExtractionHelper;
 
 public class EntryDropColumn {
@@ -31,6 +32,7 @@ public class EntryDropColumn {
 			System.out.println("Deleting binding entry now");
 			PropertyBindingDeletionHandler(_tableName);
 			System.out.println("Deleted Binding Entry");
+			cacheStore.evict("SelectAll"+_tableName);
 			
 		}
 		else

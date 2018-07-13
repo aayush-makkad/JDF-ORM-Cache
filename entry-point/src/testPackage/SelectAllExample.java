@@ -4,8 +4,10 @@ import tables.testProcess;
 import tables.test_table;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 import process.process;
+
 
 public class SelectAllExample {
 	
@@ -15,6 +17,9 @@ public class SelectAllExample {
 		// TODO Auto-generated method stub
 		
 		//create an arraylist to hold the returned obects
+		
+		
+		
 		ArrayList<Object> _tableData = new ArrayList<Object>();
 		
 		//get the returned objects
@@ -46,6 +51,8 @@ public class SelectAllExample {
 		
 		System.out.println("Total time taken : "+totalTime);
 		
+		
+		
 		long startTime1 = System.nanoTime();
 		ArrayList<Object> tableData2 = process.SelectAll("test_table");
 		
@@ -68,14 +75,14 @@ public class SelectAllExample {
 		
 		System.out.println("Total time taken after being cached : "+totalTime3);
 		
-		ChangeColumnNameExample.main(null);
-		System.out.println("Cache evicted!!");
+	//	System.out.println("Cache evicted!!");
 		
-		if(flag){
-			flag = false;
-			SelectAllExample.main(null);
-		}
-		
+//		if(flag){
+//			flag = false;
+//			ChangeColumnNameExample.main(null);
+//			SelectAllExample.main(null);
+//		}
+//		
 
 	}
 

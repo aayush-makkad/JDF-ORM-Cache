@@ -9,8 +9,8 @@ public class ChangeColumnNameExample {
 		
 		// Define the table name, current name of column and the name you want to change it to
 		String _tableName = "test_table";
-		String _oldName = "five_test";
-		String _newName = "five_testt";
+		String _oldName = "five_testt";
+		String _newName = "five_testt3";
 		
 		
 		// Call the function to change it

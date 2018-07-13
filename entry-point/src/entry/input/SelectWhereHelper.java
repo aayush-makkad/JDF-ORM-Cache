@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.ResultSetMetaData;
 
+import Cache.cacheStore;
 import framework.core.jdbc.SelectWhereJDBC;
 import tables.test_table;
 
@@ -20,31 +21,31 @@ public class SelectWhereHelper {
 		
 		//Select where equals
 		
-		ArrayList<Object> ar = SelectWhere("test_table","first_test","1");
-		
-		for(Object o : ar){
-			
-			test_table te = test_table.class.cast(o);
-			System.out.println(te.gettry_two());
-			
-			System.out.println(te.getfive_test());
-			
-			
-		}
-		
-		// select where not equals
-		
-		ArrayList<Object> ar2 = SelectWhereNot("test_table","first_test","1");
-		
-		for(Object o : ar2){
-			
-			test_table te = test_table.class.cast(o);
-			System.out.println(te.gettry_two());
-			
-			System.out.println(te.getfive_test());
-			
-			
-		}
+//		ArrayList<Object> ar = SelectWhere("test_table","first_test","1");
+//		
+//		for(Object o : ar){
+//			
+//			test_table te = test_table.class.cast(o);
+//			System.out.println(te.gettry_two());
+//			
+//			System.out.println(te.getfive_test());
+//			
+//			
+//		}
+//		
+//		// select where not equals
+//		
+//		ArrayList<Object> ar2 = SelectWhereNot("test_table","first_test","1");
+//		
+//		for(Object o : ar2){
+//			
+//			test_table te = test_table.class.cast(o);
+//			System.out.println(te.gettry_two());
+//			
+//			System.out.println(te.getfive_test());
+//			
+//			
+//		}
 		
 	}
 	
@@ -106,15 +107,29 @@ public class SelectWhereHelper {
 		
 		if(isInt)
 		{
-			
+			if(cacheStore.getFromCache("SelectWhere"+_tableName+"colName equals"+EqualityCond)!=null){
+				
+				res = cacheStore.getFromCache("SelectWhere"+_tableName+"colName equals"+EqualityCond);
+			}
+			else{
 			ResultSet rs =SelectWhereJDBC.MainProcessINT(_tableName,_colName,EqualityCond);
 			 res = ArrayListWrapperCreator(rs);
+			 cacheStore.setCache("SelectWhere"+_tableName+"colName equals"+EqualityCond, res);
+			}
 		}
 		else
 		{
+			if(cacheStore.getFromCache("SelectWhere"+_tableName+"colName equals"+EqualityCondString)!=null){
+				
+				res = cacheStore.getFromCache("SelectWhere"+_tableName+"colName equals"+EqualityCondString);
+			}
+			else{
 			ResultSet rs = SelectWhereJDBC.MainProcessString(_tableName, _colName, EqualityCondString);
 			 res = ArrayListWrapperCreator(rs);
+			 cacheStore.setCache("SelectWhere"+_tableName+"colName equals"+EqualityCondString, res);
+			}
 		}
+		
 		
 		return res ;
 		
